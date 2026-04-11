@@ -1,0 +1,18 @@
+<launch>
+    <include file="$(find turtlebot_bringup)/launch/minimal.launch" />
+
+    <include file="$(find turtlebot_navigation)/launch/amcl_demo.launch">
+        <arg name="map_file" value="$(find p2_zhe13)/maps/lab_map.yaml" />
+    </include>
+
+    <include file="$(find turtlebot_rviz_launchers)/launch/view_navigation.launch" />
+
+    <node pkg="p2_zhe13"
+          type="waypoint_nav.py"
+          name="waypoint_nav"
+          output="screen">
+        <param name="pos_tol" value="0.30" />
+        <param name="yaw_tol" value="0.35" />
+        <param name="pause_after_arrival" value="2.0" />
+    </node>
+</launch>

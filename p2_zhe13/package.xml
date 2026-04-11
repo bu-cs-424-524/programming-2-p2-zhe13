@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>p2_zhe13</name>
+  <version>0.0.1</version>
+  <description>CS424/524 Assignment 2 package</description>
+
+  <maintainer email="your_email@example.com">Zijian He</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+
+  <export>
+  </export>
+</package>
