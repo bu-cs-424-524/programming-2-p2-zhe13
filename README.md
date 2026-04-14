@@ -185,29 +185,31 @@ Camera Topics Used
 
 The Astra camera on the robot published the following relevant topics:
 	•	RGB image:
-
+```
 /camera/color/image_raw
-
-	•	Depth image:
-	
+```
+ •	Depth image:
+```	
 /camera/depth/image_raw
-
+```
 Velocity commands are published to:
-
+```
 /cmd_vel_mux/input/teleop
-
+```
 Launching Part 2
 
 Terminal 1: Robot base
+```
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch turtlebot_bringup minimal.launch --screen
-
+```
 Terminal 2: Ball follower and Astra camera
+```
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch p2_zhe13 p2b.launch
-
+```
 Part 2 Script Summary
 
 ball_follower.py
@@ -236,10 +238,11 @@ Control Logic
 	•	Desired target distance:
 	•	about 1.0 m
 Key Parameters
+```python
 self.desired_distance = 1.0
 self.k_ang = 0.0025
 self.k_lin = 0.3
-
+```
 The motion condition for forward/backward movement is intentionally relaxed so that the robot can move even if the ball is not perfectly centered.
 
 Notes and Troubleshooting
