@@ -143,10 +143,14 @@ source ~/catkin_ws/devel/setup.bash
 roslaunch p2_zhe13 p2a.launch
 ```
 Important Steps Before Navigation
-	1.	In RViz, set the Fixed Frame to map
-	2.	Use 2D Pose Estimate to initialize the robot pose
-	3.	Optionally test one manual 2D Nav Goal first
-	4.	Then run the automatic waypoint navigation node
+
+1.	In RViz, set the Fixed Frame to map
+
+2.	Use 2D Pose Estimate to initialize the robot pose
+
+3.	Optionally test one manual 2D Nav Goal first
+
+4.	Then run the automatic waypoint navigation node
 
 Waypoints Used
 
@@ -165,10 +169,14 @@ Part 1 Script Summary
 waypoint_nav.py
 
 Main tasks:
-	•	Subscribe to /amcl_pose
-	•	Publish navigation goals to /move_base_simple/goal
-	•	Check if the robot has reached each goal
-	•	Move through all waypoints in order
+
+•	Subscribe to /amcl_pose
+
+•	Publish navigation goals to /move_base_simple/goal
+
+•	Check if the robot has reached each goal
+
+•	Move through all waypoints in order
 
 The robot is considered to have reached the goal when both position and yaw errors are within predefined tolerances.
 
@@ -177,10 +185,14 @@ Part 2: Ball Following
 Description
 
 Part 2 detects a pink/red ball in the RGB image and uses the depth image to estimate its distance. The robot then:
-	•	rotates toward the ball,
-	•	moves forward if the ball is far away,
-	•	moves backward if the ball is too close,
-	•	attempts to maintain a distance of about 1 meter.
+
+•	rotates toward the ball,
+
+•	moves forward if the ball is far away,
+
+•	moves backward if the ball is too close,
+
+•	attempts to maintain a distance of about 1 meter.
 
 Camera Topics Used
 
