@@ -40,6 +40,7 @@ p2_zhe13/
 Dependencies
 
 This package depends on the following ROS packages:
+	
 	•	rospy
 	•	std_msgs
 	•	geometry_msgs
@@ -49,6 +50,7 @@ This package depends on the following ROS packages:
 	•	image_transport
 
 Additional robot/system packages used during testing:
+	
 	•	turtlebot_bringup
 	•	turtlebot_navigation
 	•	turtlebot_rviz_launchers
@@ -110,6 +112,7 @@ After the map was built, it was saved using:
 rosrun map_server map_saver -f ~/catkin_ws/src/p2_zhe13/maps/lab_map
 ```
 This generated:
+	
 	•	maps/lab_map.pgm
 	•	maps/lab_map.yaml
 
