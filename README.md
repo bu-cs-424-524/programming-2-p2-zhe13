@@ -37,7 +37,7 @@ p2_zhe13/
 ├── CMakeLists.txt
 └── package.xml
 ```
-Dependencies
+## Dependencies
 
 This package depends on the following ROS packages:
 	
@@ -58,7 +58,7 @@ Additional robot/system packages used during testing:
 	•	astra_camera
 	•	map_server
 
-Build Instructions
+## Build Instructions
 Open a terminal and run:
 ```
 cd ~/catkin_ws
@@ -70,9 +70,9 @@ Make sure the Python scripts are executable:
 chmod +x ~/catkin_ws/src/p2_zhe13/script/waypoint_nav.py
 chmod +x ~/catkin_ws/src/p2_zhe13/script/ball_follower.py
 ```
-Part 1: Autonomous Navigation
+## Part 1: Autonomous Navigation
 
-Description
+### Description
 
 Part 1 performs map-based navigation. The robot first uses a previously saved occupancy grid map,
 then localizes itself using AMCL, and finally moves through three predefined waypoints in the order:
@@ -116,7 +116,7 @@ This generated:
 	•	maps/lab_map.pgm
 	•	maps/lab_map.yaml
 
-Launching Part 1
+### Launching Part 1
 
 Terminal 1: Robot base
 ```
@@ -142,7 +142,7 @@ source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch p2_zhe13 p2a.launch
 ```
-Important Steps Before Navigation
+### Important Steps Before Navigation
 
 1.	In RViz, set the Fixed Frame to map
 
@@ -152,7 +152,7 @@ Important Steps Before Navigation
 
 4.	Then run the automatic waypoint navigation node
 
-Waypoints Used
+### Waypoints Used
 
 The waypoint poses were obtained from /amcl_pose.
 ```python
@@ -164,11 +164,11 @@ The waypoint order in the script is:
 ```python
 self.waypoints = [self.L2, self.L3, self.L1]
 ```
-Part 1 Script Summary
+### Part 1 Script Summary
 
 waypoint_nav.py
 
-Main tasks:
+### Main tasks:
 
 •	Subscribe to /amcl_pose
 
@@ -180,9 +180,9 @@ Main tasks:
 
 The robot is considered to have reached the goal when both position and yaw errors are within predefined tolerances.
 
-Part 2: Ball Following
+## Part 2: Ball Following
 
-Description
+### Description
 
 Part 2 detects a pink/red ball in the RGB image and uses the depth image to estimate its distance. The robot then:
 
@@ -194,7 +194,7 @@ Part 2 detects a pink/red ball in the RGB image and uses the depth image to esti
 
 •	attempts to maintain a distance of about 1 meter.
 
-Camera Topics Used
+### Camera Topics Used
 
 The Astra camera on the robot published the following relevant topics:
 	•	RGB image:
@@ -209,7 +209,7 @@ Velocity commands are published to:
 ```
 /cmd_vel_mux/input/teleop
 ```
-Launching Part 2
+### Launching Part 2
 
 Terminal 1: Robot base
 ```
@@ -223,11 +223,11 @@ source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch p2_zhe13 p2b.launch
 ```
-Part 2 Script Summary
+## Part 2 Script Summary
 
 ball_follower.py
 
-Main tasks:
+### Main tasks:
 
 •	Subscribe to RGB and depth images
 •	Detect the ball in HSV color space
@@ -235,16 +235,16 @@ Main tasks:
 •	Read a robust depth value around the ball center
 •	Publish velocity commands for turning and forward/backward motion
 
-Detection Method
+### Detection Method
 
 The script uses HSV thresholding to detect red and pink colors, since the ball used in testing appeared more pink than pure red.
 
-The detected ball is displayed in:
+### The detected ball is displayed in:
 	
 •	rgb_debug
 •	mask_debug
 
-Control Logic
+### Control Logic
 
 •	If no ball is detected:
 •	rotate slowly to search
@@ -263,14 +263,14 @@ The motion condition for forward/backward movement is intentionally relaxed so t
 
 Notes and Troubleshooting
 
-Part 1
+### Part 1
 
 •	The robot platform used in the lab was TurtleBot2 / Kobuki
 •	The platform did not have a clear standalone cylindrical 2D lidar visible
 •	During development, map building required debugging of the available scan source
 •	Saved map paths must use valid absolute or package-resolved paths
 
-Part 2
+### Part 2
 
 •	The ball used in testing was pink, so HSV thresholds had to be adjusted from pure red to include pink/magenta
 •	The depth image may not always show a very sharp ball boundary, especially due to:
@@ -286,7 +286,7 @@ Part 2
 
 ⸻
 
-Files Submitted
+## Files Submitted
 
 The final submission includes:
 
