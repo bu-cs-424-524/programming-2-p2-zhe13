@@ -240,17 +240,19 @@ Detection Method
 The script uses HSV thresholding to detect red and pink colors, since the ball used in testing appeared more pink than pure red.
 
 The detected ball is displayed in:
-	•	rgb_debug
-	•	mask_debug
+	
+•	rgb_debug
+•	mask_debug
 
 Control Logic
-	•	If no ball is detected:
-	•	rotate slowly to search
-	•	If the ball is detected:
-	•	first rotate to align with the ball
-	•	if the ball is roughly centered, move forward/backward based on depth
-	•	Desired target distance:
-	•	about 1.0 m
+
+•	If no ball is detected:
+•	rotate slowly to search
+•	If the ball is detected:
+•	first rotate to align with the ball
+•	if the ball is roughly centered, move forward/backward based on depth
+•	Desired target distance:
+•	about 1.0 m
 Key Parameters
 ```python
 self.desired_distance = 1.0
@@ -262,37 +264,40 @@ The motion condition for forward/backward movement is intentionally relaxed so t
 Notes and Troubleshooting
 
 Part 1
-	•	The robot platform used in the lab was TurtleBot2 / Kobuki
-	•	The platform did not have a clear standalone cylindrical 2D lidar visible
-	•	During development, map building required debugging of the available scan source
-	•	Saved map paths must use valid absolute or package-resolved paths
+
+•	The robot platform used in the lab was TurtleBot2 / Kobuki
+•	The platform did not have a clear standalone cylindrical 2D lidar visible
+•	During development, map building required debugging of the available scan source
+•	Saved map paths must use valid absolute or package-resolved paths
 
 Part 2
-	•	The ball used in testing was pink, so HSV thresholds had to be adjusted from pure red to include pink/magenta
-	•	The depth image may not always show a very sharp ball boundary, especially due to:
-	•	floor reflections
-	•	ball surface properties
-	•	lighting conditions
-	•	If the robot only turns but does not move:
-	•	check whether the ball is centered enough
-	•	check whether a valid depth value is available
-	•	check /mobile_base/commands/velocity
-	•	If nodes crash with duplicate-name errors:
-	•	make sure minimal.launch is not started twice
+
+•	The ball used in testing was pink, so HSV thresholds had to be adjusted from pure red to include pink/magenta
+•	The depth image may not always show a very sharp ball boundary, especially due to:
+•	floor reflections
+•	ball surface properties
+•	lighting conditions
+•	If the robot only turns but does not move:
+•	check whether the ball is centered enough
+•	check whether a valid depth value is available
+•	check /mobile_base/commands/velocity
+•	If nodes crash with duplicate-name errors:
+•	make sure minimal.launch is not started twice
 
 ⸻
 
 Files Submitted
 
 The final submission includes:
-	•	launch/p2a.launch
-	•	launch/p2b.launch
-	•	script/waypoint_nav.py
-	•	script/ball_follower.py
-	•	maps/lab_map.pgm
-	•	maps/lab_map.yaml
-	•	misc/README.md
-	•	misc/message.txt
+
+•	launch/p2a.launch
+•	launch/p2b.launch
+•	script/waypoint_nav.py
+•	script/ball_follower.py
+•	maps/lab_map.pgm
+•	maps/lab_map.yaml
+•	misc/README.md
+•	misc/message.txt
 
 ⸻
 
