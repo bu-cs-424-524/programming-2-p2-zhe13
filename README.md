@@ -58,14 +58,16 @@ Additional robot/system packages used during testing:
 
 Build Instructions
 Open a terminal and run:
+```
 cd ~/catkin_ws
 catkin_make
 source devel/setup.bash
-
+```
 Make sure the Python scripts are executable:
+```
 chmod +x ~/catkin_ws/src/p2_zhe13/script/waypoint_nav.py
 chmod +x ~/catkin_ws/src/p2_zhe13/script/ball_follower.py
-
+```
 Part 1: Autonomous Navigation
 
 Description
@@ -86,15 +88,25 @@ The map was built first and saved using map_server.
 Example workflow used during mapping
 
 Terminal 1:
+```
 roslaunch turtlebot_bringup minimal.launch --screen
+```
 Terminal 2:
+```
 rosrun gmapping slam_gmapping scan:=/scan
+```
 Terminal 3:
+```
 roslaunch turtlebot_rviz_launchers view_navigation.launch --screen
+```
 Terminal 4:
+```
 roslaunch turtlebot_teleop keyboard_teleop.launch --screen
+```
 After the map was built, it was saved using:
+```
 rosrun map_server map_saver -f ~/catkin_ws/src/p2_zhe13/maps/lab_map
+```
 This generated:
 	•	maps/lab_map.pgm
 	•	maps/lab_map.yaml
@@ -102,25 +114,29 @@ This generated:
 Launching Part 1
 
 Terminal 1: Robot base
+```
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch turtlebot_bringup minimal.launch --screen
-
+```
 Terminal 2: Localization and navigation
+```
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch turtlebot_navigation amcl_demo.launch map_file:=/home/zhe13/catkin_ws/src/p2_zhe13/maps/lab_map.yaml
-
+```
 Terminal 3: RViz
+```
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch turtlebot_rviz_launchers view_navigation.launch --screen
-
+```
 Terminal 4: Run the waypoint node
+```
 source /opt/ros/noetic/setup.bash
 source ~/catkin_ws/devel/setup.bash
 roslaunch p2_zhe13 p2a.launch
-
+```
 Important Steps Before Navigation
 	1.	In RViz, set the Fixed Frame to map
 	2.	Use 2D Pose Estimate to initialize the robot pose
@@ -130,13 +146,15 @@ Important Steps Before Navigation
 Waypoints Used
 
 The waypoint poses were obtained from /amcl_pose.
+```python
 self.L1 = (-0.23962980942397058, -0.16532155144336347, -0.6365)
 self.L2 = (2.5329462157197034, -14.771843577351193, -1.4012)
 self.L3 = (3.996767255370984, -24.27362291927686, -1.4357)
-
+```
 The waypoint order in the script is:
+```python
 self.waypoints = [self.L2, self.L3, self.L1]
-
+```
 Part 1 Script Summary
 
 waypoint_nav.py
@@ -167,12 +185,15 @@ Camera Topics Used
 
 The Astra camera on the robot published the following relevant topics:
 	•	RGB image:
+
 /camera/color/image_raw
 
 	•	Depth image:
+	
 /camera/depth/image_raw
 
 Velocity commands are published to:
+
 /cmd_vel_mux/input/teleop
 
 Launching Part 2
