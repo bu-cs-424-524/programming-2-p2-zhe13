@@ -170,9 +170,9 @@ waypoint_nav.py
 
 ### Main tasks:
 
-•	Subscribe to /amcl_pose
+•	Subscribe to ```/amcl_pose```
 
-•	Publish navigation goals to /move_base_simple/goal
+•	Publish navigation goals to ```/move_base_simple/goal```
 
 •	Check if the robot has reached each goal
 
@@ -280,16 +280,16 @@ Notes and Troubleshooting
 •	If the robot only turns but does not move:
 •	check whether the ball is centered enough
 •	check whether a valid depth value is available
-•	check /mobile_base/commands/velocity
+•	check ```/mobile_base/commands/velocity```
 •	If nodes crash with duplicate-name errors:
-•	make sure minimal.launch is not started twice
+•	make sure ```minimal.launch``` is not started twice
 
 ⸻
 
 ## Files Submitted
 
 The final submission includes:
-
+```
 •	launch/p2a.launch
 •	launch/p2b.launch
 •	script/waypoint_nav.py
@@ -298,7 +298,7 @@ The final submission includes:
 •	maps/lab_map.yaml
 •	misc/README.md
 •	misc/message.txt
-
+```
 ⸻
 
 Author
