@@ -74,17 +74,19 @@ Description
 
 Part 1 performs map-based navigation. The robot first uses a previously saved occupancy grid map,
 then localizes itself using AMCL, and finally moves through three predefined waypoints in the order:
+```
 L1 -> L2 -> L3 -> L1
-
+```
 The waypoint goals are published to:
-/move_base_simple/goal
+```/move_base_simple/goal```
 
 The robot pose is monitored from:
-/amcl_pose
+```/amcl_pose```
 
 Map Building
 
 The map was built first and saved using map_server.
+
 Example workflow used during mapping
 
 Terminal 1:
@@ -177,10 +179,6 @@ Part 2 detects a pink/red ball in the RGB image and uses the depth image to esti
 	•	moves backward if the ball is too close,
 	•	attempts to maintain a distance of about 1 meter.
 
-Camera Topics Used
-
-The Astra camera on the robot published the following relevant topics:
-	•	RGB image:
 Camera Topics Used
 
 The Astra camera on the robot published the following relevant topics:
