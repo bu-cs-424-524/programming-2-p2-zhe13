@@ -228,11 +228,12 @@ Part 2 Script Summary
 ball_follower.py
 
 Main tasks:
-	•	Subscribe to RGB and depth images
-	•	Detect the ball in HSV color space
-	•	Compute the ball center in image coordinates
-	•	Read a robust depth value around the ball center
-	•	Publish velocity commands for turning and forward/backward motion
+
+•	Subscribe to RGB and depth images
+•	Detect the ball in HSV color space
+•	Compute the ball center in image coordinates
+•	Read a robust depth value around the ball center
+•	Publish velocity commands for turning and forward/backward motion
 
 Detection Method
 
