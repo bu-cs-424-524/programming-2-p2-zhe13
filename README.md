@@ -87,7 +87,7 @@ The robot pose is monitored from:
 
 ### Map Building
 
-The map was built first and saved using map_server.
+The map was built first and saved using ```map_server```
 
 ### Example workflow used during mapping
 
