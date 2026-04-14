@@ -85,11 +85,11 @@ The waypoint goals are published to:
 The robot pose is monitored from:
 ```/amcl_pose```
 
-Map Building
+### Map Building
 
 The map was built first and saved using map_server.
 
-Example workflow used during mapping
+### Example workflow used during mapping
 
 Terminal 1:
 ```
@@ -154,7 +154,7 @@ roslaunch p2_zhe13 p2a.launch
 
 ### Waypoints Used
 
-The waypoint poses were obtained from /amcl_pose.
+The waypoint poses were obtained from ```/amcl_pose```
 ```python
 self.L1 = (-0.23962980942397058, -0.16532155144336347, -0.6365)
 self.L2 = (2.5329462157197034, -14.771843577351193, -1.4012)
